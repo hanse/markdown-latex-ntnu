@@ -1,10 +1,6 @@
 \documentclass[b5paper,twoside]{book}
 \usepackage[lmargin=25mm,rmargin=25mm,tmargin=27mm,bmargin=30mm]{geometry}
 \usepackage{lmodern}
-$if(linestretch)$
-\usepackage{setspace}
-\setstretch{$linestretch$}
-$endif$
 \usepackage{amssymb,amsmath}
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage[T1]{fontenc}
@@ -83,15 +79,8 @@ $endif$
 
 \usepackage[linktocpage=true,colorlinks]{hyperref}
 \hypersetup{
-$if(title-meta)$
-            pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-            pdfauthor={$author-meta$},
-$endif$
-$if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
-$endif$
+            pdftitle={A Very Long Title Yeah},
+            pdfauthor={John Doe},
             colorlinks=true,
             linkcolor=black,
             citecolor=black,
@@ -102,14 +91,7 @@ $endif$
 }
 
 
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
 
-$if(verbatim-in-note)$
-\usepackage{fancyvrb}
-\VerbatimFootnotes % allows verbatim text in footnotes
-$endif$
 
 \usepackage{rotating,multirow,longtable,booktabs}
 % % Fix footnotes in tables (requires footnote package)
@@ -132,12 +114,8 @@ $endif$
 \setlength{\parskip}{1em}
 
 %
-% $if(numbersections)$
-% \setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-% $else$
-% \setcounter{secnumdepth}{0}
-% $endif$
-
+% % \setcounter{secnumdepth}{0}
+% 
 
 \usepackage[acronym]{glossaries}
 \makeglossaries
@@ -149,9 +127,6 @@ $endif$
 \def\fps@figure{htbp}
 \makeatother
 
-$for(header-includes)$
-$header-includes$
-$endfor$
 
 \begin{document}
 \pagenumbering{roman}
@@ -169,31 +144,29 @@ $endfor$
 
 % Set the title of the Document between two horizontal lines
 \hrule ~\\[0.4cm]
-{\huge \bfseries $title$}\\[0.5cm]		% print the title of the document
+{\huge \bfseries A Very Long
+Title Yeah}\\[0.5cm]		% print the title of the document
 \hrule ~\\[1.5cm]
 
 % Additional Information about the document
 \begin{minipage}{0.4\textwidth}
   \centering
 	  \large
-		  $author$\\
+		  John Doe\\
 		  \vspace{2.5cm}
 		  \vspace{1.5cm}
-		  \textbf{Supervisor:}  \\ $supervisor$ %add other people in a similar way
+		  \textbf{Supervisor:}  \\ David Webb %add other people in a similar way
 \end{minipage}
 
 \vfill
 
 % Bottom of the page
-{\large $date$}
+{\large Fall 2016}
 
 \thispagestyle{empty}
 
 \end{center}
 \end{titlepage}
-$for(include-before)$
-$include-before$
-$endfor$
 
 \setcounter{page}{0}
 \chapter*{Abstract}
@@ -226,14 +199,59 @@ $endfor$
 
 \pagenumbering{arabic}
 
-$body$
+\chapter{Introduction}\label{introduction}
+
+It is very easy
+to write stuff
+in Markdown.
+Writing reports
+is something you
+do a lot a
+places like
+\gls{NTNU}. You
+won't believe it
+\citep{vg}.
+
+\section{I'll
+Make a
+List}\label{ill-make-a-list}
+
+\begin{itemize}
+\tightlist
+\item
+  This
+\item
+  Is
+\item
+  So
+\item
+  Awesome\footnote{Yes,
+    it is.}.
+\item
+  Figure
+  \ref{bourne}
+  shows a
+  picture of
+  Jason Bourne.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{images/jason-bourne.jpg}
+\caption{Jason
+Bourne\label{bourne}}
+\end{figure}
+
+\chapter{Background}\label{background}
+
+\chapter{Research
+Methodology}\label{research-methodology}
+
+He-he-he
 
 \renewcommand\bibname{Bibliography}
 
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\bibliography{references}
 
-$for(include-after)$
-$include-after$
-$endfor$
 
 \end{document}

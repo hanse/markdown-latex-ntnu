@@ -11,7 +11,7 @@
 
 ## Writing
 
-* You write your content using Markdown. All content reside in the `content` folder and you typically want one `.md` file for each chapter. To add a chapter you must create the file and update the list in `Makefile`.
+* You write your content using Markdown. All content reside in the `content` folder and you typically want one `.md` file for each chapter. The chapter files should start with a two digit number for correct sorting (e.g 01, 02, 03, 04, 05).
 
 * _Title_ and _authors_ are set using YAML front matter in `thesis.md`. You can also write all your content in this file if that is your game.
 
